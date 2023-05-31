@@ -1,0 +1,208 @@
+body{
+	background-color: #6f7c8b ;
+	width: 100%;
+	margin: auto;
+}
+
+/* Sticky NavBar, w3 schools*/
+
+nav {
+	background-color:#5d6f97 /* dark mode: #3a4449*/ ;/* #2734bea3*/
+	display: flex;
+	padding: 5px 5px;
+	align-items: center;
+	border-radius: 5px;
+	color: white;
+	flex-wrap: wrap;
+	margin: auto;
+}
+
+.nav--title {
+	color: #ebefc7;
+	display: flex;
+	text-shadow: 0px 0px 15px black;
+	margin: 10px auto;
+	font: 50px 'Bell MT';
+	font-weight: 500;
+	height: 100%;
+	flex-direction: row;
+}
+
+h4{
+	text-align: center;
+	margin: 10px auto;
+}
+.nav--topics {
+	color: #d2d6f9;
+	list-style: none;
+	align-items: center;
+	display: flex;
+	flex-wrap: wrap;
+	margin-left: auto;
+	font: 1.05em 'Baskerville Old Face';
+	align-content: center;
+}
+
+li{
+	margin-top: 5px;
+	margin-right: 25px;
+	font: 1.05em 'Baskerville Old Face';
+	cursor: pointer;
+	flex-direction: column;
+	align-items: flex-end;
+	text-decoration: none;
+}
+
+a{
+	color: #d2d6f9;
+	text-decoration: none;
+	
+}
+.confirm--answers{
+	color: #ebefc7;
+	text-align: center;
+	margin: 10px auto;
+	text-shadow: 0px 0px 5px black;
+	font-size: 18px;
+}
+
+.calculatorDisplay{
+	display:block;
+	background-color: #ffa50021;
+}
+.meanCalculator {
+	margin: auto;
+}
+
+main {
+	text-align: center;
+}
+
+section {
+	padding: 5px;
+	margin-bottom: 5px;
+}
+.section--paragraph {
+	margin: 10px;
+	color: wheat;
+	font: 20px 'Bell MT';
+	text-align: center;
+	text-shadow: 1px -3px 10px black;
+	display: block;
+}
+
+.section--sample-Size{
+	display: flex;
+	align-items: center;
+
+}
+input,.sample-Size{
+	margin-left: 10px;
+	border-radius: 100%;
+	height: 40px;
+	width: 40px;;
+}
+
+.main{
+	background-color: #ffa50021;
+	color: wheat;
+	margin-bottom: auto auto 20px;
+	height: auto;
+	text-align:center;
+	font: 20px 'Bell MT';
+	text-align: center;
+}
+h1{
+	text-shadow: 2px -3px black;
+	color: #f2edc5;
+	font-size: 2.3vw;
+	margin-top: 10px;
+	margin-bottom: 5px;
+}
+.cards {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	margin: auto;
+	padding: 5px;
+	justify-content: center;
+}
+
+.card {
+	/* background-color: #bd7a7a; */
+	background-color: #d3b881;
+	color: #340909;
+	display: flex;
+	flex-direction: column;
+	margin: 1vw 2vw;
+	width: 27%;
+	height: auto;
+	border: 3px solid #727070;
+	border-radius: 2rem;
+	align-items: center;
+	flex-wrap: wrap;
+}
+
+.card-content {
+	color: black;
+	margin: 0px;
+	width: 100%;
+	height: auto;
+	border-radius: inherit;
+}
+
+.card--topic {
+	margin-bottom: auto;
+	color: #26040a;
+	font-size: 1.7vw;
+}
+
+pre{
+	margin-bottom: auto;
+	font-family: inherit;
+	color: #fefbd5;
+	text-align: center;
+	font-size: 1.4vw;
+}
+.question{
+	text-align: justify;
+	padding: 5px 1rem;
+	width: auto;
+	color: black;
+	line-height: 100%;
+	font-size: 1.5vw;
+	font-family: Times New Roman;
+}
+
+.header--salutation{
+	text-align: center;
+	color: white;
+	margin: auto;
+	padding: 10px;
+}
+footer {
+	color: navajowhite;
+	text-align: center;
+	margin: auto;
+	/* background-color: red; */
+	margin-top: 0px;
+}
+
+.btn--another-quiz, .solution{
+	background-color: #ffa50066;
+	margin-bottom: 15px;
+	padding: 5px;
+	/* color: #c4b2b2; */
+	/* color: #2a040a; */
+	color: #390303;
+	font-size: 1.3vw;
+	width: 11vw;
+	font-weight: bold;
+	font-family: Bell MT;
+	border: 1.4px solid #dcc9c9;
+	border-radius: 1rem;
+}
+
+
+
+/* Calulator CSS*/

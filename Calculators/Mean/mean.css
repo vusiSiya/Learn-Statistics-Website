@@ -1,0 +1,77 @@
+
+body{
+	font: 1.5vw monospace;
+	font-weight: 100;
+}
+.calculator{
+	display: flex;
+	flex-direction: column;
+	padding: 10px;
+	width: 25vw;
+	align-items: center;
+	background-color: aquamarine;
+	border: 1px solid grey;
+	border-radius: 1rem;
+}
+p{
+	display: flex;
+	margin: 10px auto;
+	color: #2c4180;
+	font-weight: 100;
+	width: auto;
+}
+.section--sample-Size {
+	display: flex;
+	flex-wrap: wrap;
+	margin-left: 0px;
+}
+.btn-Enter-samples{
+	width: fit-content;
+	height: 4vh;
+	color: white;
+	background-color: #1cdd1c;
+	margin: 5px 50px;
+	font-weight: bolder;
+	font: 1.2vw Monospace;
+	border: none;
+	border-radius: 5px;
+	text-transform: capitalize;
+}
+
+.btn-Enter-samples:hover{
+	box-shadow:0px 2px 40px 0px rgba(0,0,0,.3);
+}
+
+input{
+	height: 15px;
+	width: 2vw;
+	border: 2px solid yellow;
+	border-radius: 30%;
+	border-width: 0.5px;
+	margin: 2px 5px;
+	font-family: monospace;
+	font-size: smaller;
+	padding: 0.5vw;
+	color: #06062f;
+}
+.samples{
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	padding: 10px 0px;
+	justify-content: space-evenly;
+}
+.section--output{
+	display: flex;
+	font: 18px  monospace;
+	color: #e95a5a;
+	font-weight: bold;
+}
+
+section.sought-value {
+	
+}
+.sought-value{
+	display: flex;
+	flex-wrap: wrap;
+}

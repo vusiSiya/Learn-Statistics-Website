@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculators</title>
+    <link href="./mean.css" rel="stylesheet"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <div class="calculator">
+        <h5 
+            style="text-align: center; 
+        	color: #717d1c;">
+            Calculate the mean, standard deviation and range
+        </h5>
+        <section class="section--sample-Size">
+            <p>sample size:<p/>
+            <input required type="number"class="sample-Size" />          
+        </section>
+        <button class="btn-Enter-samples" onhover="enterSamples()">Enter samples</button>
+        <div style="display: flex">
+            <p class="p--data"></p>
+            <div class="samples">
+            </div>
+        </div>
+        <section class="output">          
+        </section>
+    </div>
+    <script src="mean.js"></script>
+</body>
+</html>
