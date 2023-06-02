@@ -4,24 +4,23 @@ body{
 	margin: auto;
 }
 
-/* Sticky NavBar, w3 schools*/
-
 nav {
-	background-color:#5d6f97 /* dark mode: #3a4449*/ ;/* #2734bea3*/
+	background-color: #304f95;
 	display: flex;
 	padding: 5px 5px;
-	align-items: center;
+	align-items: flex-start;
 	border-radius: 5px;
 	color: white;
 	flex-wrap: wrap;
 	margin: auto;
+	justify-content: space-between;
 }
 
 .nav--title {
 	color: #ebefc7;
 	display: flex;
 	text-shadow: 0px 0px 15px black;
-	margin: 10px auto;
+	margin: 10px;
 	font: 50px 'Bell MT';
 	font-weight: 500;
 	height: 100%;
@@ -35,12 +34,14 @@ h4{
 .nav--topics {
 	color: #d2d6f9;
 	list-style: none;
-	align-items: center;
+	align-items: flex-start;
 	display: flex;
 	flex-wrap: wrap;
-	margin-left: auto;
+	margin: auto;
 	font: 1.05em 'Baskerville Old Face';
-	align-content: center;
+	align-content: space-between;
+	padding-left: 0px;
+	justify-content: center;
 }
 
 li{
@@ -65,13 +66,16 @@ a{
 	text-shadow: 0px 0px 5px black;
 	font-size: 18px;
 }
-
+.btn-calculator{
+	color: white;
+	background-color:limegreen;
+	border: 1px solid white;
+	font-weight:bold;
+	border-radius: 0.5em;
+}
 .calculatorDisplay{
 	display:block;
 	background-color: #ffa50021;
-}
-.meanCalculator {
-	margin: auto;
 }
 
 main {
@@ -89,18 +93,6 @@ section {
 	text-align: center;
 	text-shadow: 1px -3px 10px black;
 	display: block;
-}
-
-.section--sample-Size{
-	display: flex;
-	align-items: center;
-
-}
-input,.sample-Size{
-	margin-left: 10px;
-	border-radius: 100%;
-	height: 40px;
-	width: 40px;;
 }
 
 .main{
@@ -130,7 +122,7 @@ h1{
 
 .card {
 	/* background-color: #bd7a7a; */
-	background-color: #d3b881;
+	background-color: #c9ae78;
 	color: #340909;
 	display: flex;
 	flex-direction: column;
@@ -174,26 +166,28 @@ pre{
 	font-family: Times New Roman;
 }
 
-.header--salutation{
+.salutation{
 	text-align: center;
+	background-color: #4c7e7e;
 	color: white;
+	/* border: 1px solid #5f559b; */
+	border-radius: 2px;
 	margin: auto;
 	padding: 10px;
 }
 footer {
-	color: navajowhite;
-	text-align: center;
+	background-color: #5b667d;
 	margin: auto;
-	/* background-color: red; */
 	margin-top: 0px;
+	padding: 5px 2px;
+	color: wheat;
+	text-align: center;
 }
 
 .btn--another-quiz, .solution{
 	background-color: #ffa50066;
 	margin-bottom: 15px;
 	padding: 5px;
-	/* color: #c4b2b2; */
-	/* color: #2a040a; */
 	color: #390303;
 	font-size: 1.3vw;
 	width: 11vw;
@@ -202,7 +196,3 @@ footer {
 	border: 1.4px solid #dcc9c9;
 	border-radius: 1rem;
 }
-
-
-
-/* Calulator CSS*/
