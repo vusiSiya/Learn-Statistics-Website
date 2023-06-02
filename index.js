@@ -84,9 +84,10 @@ anotherCardBtn.addEventListener("click", (e)=>{
 })
 
 function getCardIndex(_indexes){
+    //The purpose of this source code is to prevent the repeat of quizzes, when user clicks on the 'another quiz' button.
     
     randomIndex =  Math.floor(Math.random() * quizData.length)
-
+    
     _indexes.push(randomIndex)
     let iLength = _indexes.length - 1
     for (let j = iLength - 1; j > 0 ; j--) {
