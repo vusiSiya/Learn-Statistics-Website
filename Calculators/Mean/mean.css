@@ -12,6 +12,7 @@ body{
 	background-color: aquamarine;
 	border: 1px solid grey;
 	border-radius: 1rem;
+	margin:auto;
 }
 p{
 	display: flex;
@@ -30,12 +31,11 @@ p{
 	height: 4vh;
 	color: white;
 	background-color: #1cdd1c;
-	margin: 5px 50px;
+	margin: 5px auto;
 	font-weight: bolder;
-	font: 1.2vw Monospace;
+	font: 1.2rem Monospace;
 	border: none;
 	border-radius: 5px;
-	text-transform: capitalize;
 }
 
 .btn-Enter-samples:hover{
@@ -44,14 +44,14 @@ p{
 
 input{
 	height: 15px;
-	width: 2vw;
+	width: 2.5em;
 	border: 2px solid yellow;
 	border-radius: 30%;
 	border-width: 0.5px;
 	margin: 2px 5px;
 	font-family: monospace;
 	font-size: smaller;
-	padding: 0.5vw;
+	padding: 0.5rem;
 	color: #06062f;
 }
 .samples{

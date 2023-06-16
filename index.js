@@ -49,16 +49,13 @@ let isNewCard = false;
 initialCardsDisplay();
 
 function initialCardsDisplay() {
-     quizCards.innerHTML = getCards();    
+     quizCards.innerHTML = getCards(quizData);    
 }
 
-function getCards() {
+function getCards(data) {
     let s = ""  
-    for (let i = 0; i < 5; i++) {
-        const randomCard = quizData[i]
-        s += newCard(randomCard, i)        
-    }
-    return s
+    data.map( (quiz, i) => s += newCard(quiz, i))
+    return s; 
 }
 
 function newCard(props, i) {
@@ -96,6 +93,7 @@ function getCardIndex(_indexes){
             randomIndex = _indexes[j];
         }        
     }
+  
     let randomCard = quizData[randomIndex]
     return randomCard
 }
@@ -114,29 +112,7 @@ document.addEventListener("click", (e)=> {
         let cardContentEl = quizCards.children[cardIndex].children[1]
         cardContentEl.innerHTML = updatedCardContent(cardData);
     }
-    else if(classList[0] === "btn-calculator"){
-        document.querySelector(".wrapper").innerHTML = `
-            <div class="calculator">
-                <h5 
-                    style="text-align: center; 
-                    color: #717d1c;">
-                    Calculate the mean, standard deviation and range
-                </h5>
-                <section class="section--sample-Size">
-                    <p>sample size:<p/>
-                    <input required type="number"class="sample-Size" />          
-                </section>
-                <button class="btn-Enter-samples" onhover="enterSamples()">Enter samples</button>
-                <div style="display: flex">
-                    <p class="p--data"></p>
-                    <div class="samples">
-                    </div>
-                </div>
-                <section class="output">          
-                </section>
-                <script src="./Calculators/Mean/mean.js"></script>
-            </div>`
-    }   
+     
 })
 
 function updatedCardContent(props){
