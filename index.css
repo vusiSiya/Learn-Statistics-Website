@@ -113,8 +113,8 @@ h1{
 }
 .cards {
 	display: grid;
-	grid-template-columns: repeat(3, 1fr);
-	grid-gap: 1em;
+	grid-template-columns: 0.5fr 0.5fr 0.5fr;
+	grid-gap: 1em 2em;
 	align-items: center;
 	margin: auto;
 	padding: 1.5em;
@@ -123,22 +123,23 @@ h1{
 }
 
 .card {
-	background-color: #c9ae78;
+	background-color: #d7b166;
 	color: #340909;
 	display: flex;
 	flex-direction: column;
-	/* margin: 1em 1.5em; */
+	margin: 1em 0.55em;
 	padding: .5em;
 	width: auto;
 	height: auto;
-	/* border: 3px solid #727070; */
 	border-radius: 1rem;
 	align-items: center;
 	flex-wrap: wrap;
+	box-shadow: 0px 0px 8px 0px #4b3535;
 }
 
 .card:hover {
-    box-shadow: 0px 0px 8px 0px #493535;
+    box-shadow: none;
+    border: 1px black;
 }
 
 .card-content {
@@ -171,7 +172,7 @@ pre:hover {
 	padding: 1rem;
 	width: auto;
 	color: black;
-	line-height: 1.2em;
+	line-height: 1.3em;
 	font-size: 1.2rem;
 	font-family: Times New Roman;
 	margin: auto;
