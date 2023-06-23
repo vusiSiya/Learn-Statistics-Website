@@ -101,7 +101,7 @@ function StandardDeviation(_mean, _definedValues) {
 //const LoopOverArray = (_array, func) => _array.forEach(func);
 function Range(_definedValues) {	
 	const arrangeElements = (_array) => {
-		let smallestNum = 0;
+		let smallestNum = _array[0];
 		const nArray = _array.map(num =>{
 			if(num < smallestNum ){
 				_array.unshift(num)
