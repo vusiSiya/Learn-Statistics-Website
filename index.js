@@ -1,6 +1,8 @@
 
 
 //const displayCalculator = document.querySelector(".calculatorDisplay")
+
+/*import {createServer} from "miragejs"*/
 const quizCards = document.querySelector(".cards");
 const anotherCardBtn = document.querySelector(".btn--another-quiz");
 const quizData= [
@@ -39,6 +41,9 @@ const quizData= [
         answer: `HEllo World`
     }   
 ]
+//let server = createServer()
+//server.get("/api/users", { quizes: [quizData] })
+
 let indexes = [0] 
 let cardIsClicked = false;
 let answer 
