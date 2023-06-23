@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Calculators",
+    "\\Calculators\\Mean"
   ],
-  "SelectedNode": "\\index.html",
+  "SelectedNode": "\\Calculators\\Mean\\mean.js",
   "PreviewInSolutionExplorer": false
 }
