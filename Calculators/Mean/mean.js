@@ -110,7 +110,8 @@ function Range(_definedValues) {
 			else{
 				_array.shift(num)
 			}
-		})	
+		})
+		return nArray;
 	}
 	const newArray = arrangeElements(_definedValues)
 	const lastEl = newArray.length - 1;
