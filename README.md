@@ -21,10 +21,9 @@ provided with just raw data.
 * Chrome DevTools
 
 ### Learning Reflection:
-* In this project I have used JavaScript to dynamically render elements, and as a React student,			
 I am making use of:
 	* pure functions
-	* and declarative programming.
+	* and a declarative programming style.
 	
 
 	

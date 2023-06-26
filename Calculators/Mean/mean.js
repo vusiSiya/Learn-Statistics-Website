@@ -16,11 +16,13 @@ samplesBtn.addEventListener("click", ()=>{
 })
 
 document.addEventListener("change", (e) => {
-	if (e.target.className=== "inputEl"){
-		return  handleValueChange(e)
+	const {className} = e.target;
+	
+	if (className=== "inputEl"){
+		handleValueChange(e);
 	}
-	else if(e.target.className=== "sample-Size"){
-		return isChanged ?  enterSampleData() : isChanged
+	else if(className=== "sample-Size"){
+		isChanged ?  enterSampleData() : isChanged;
 	}
 }) 
 function enterSampleData() {
@@ -56,19 +58,13 @@ function cleanUpHTML() {
 
 function handleValueChange(event) {
 	const { value, name } = event.target;
-	/*for (let i = 0; i < inputIndexes.length; i++) {
-		if ( name === inputIndexes[i]) {
-			dataValuesArray[i] = value * 1
-		}
-	}*/
-	let isWantedValue = inputIndexes.includes(name);
+	//let isWantedValue = inputIndexes.includes(name);
 	inputIndexes.forEach( (string,i) =>{
 		if(string === name){
 			dataValuesArray[i] = value * 1;
 		};	
 	})
 	const definedValues = getDefinedValues(dataValuesArray)
-
 	sum = Sum(definedValues);		
 	mean = Mean(sum, definedValues);
 	range = Range(definedValues);
@@ -84,8 +80,6 @@ function Sum(_array) {
 }
 
 function Mean(_sum,_definedValues) {
-
-	//const definedValues = getDefinedValues(_definedValues)
 	let _mean = _sum / _definedValues.length;
 	return _mean.toFixed(2)
 }
@@ -98,19 +92,21 @@ function StandardDeviation(_mean, _definedValues) {
 	return standardDeviation.toFixed(2);
 }
 
-//const LoopOverArray = (_array, func) => _array.forEach(func);
 function Range(_definedValues) {	
 	const arrangeElements = (_array) => {
-		let smallestNum = 0;
-		const nArray = _array.map(num =>{
-			if(num < smallestNum ){
-				_array.unshift(num)
-				smallestNum = num
+		let smallestNum = _array[0]; let highestNum = _array[0];
+		const nArray =[]
+		 _array.map(num =>{
+			if(num < highestNum ){
+				nArray.unshift(num);
+				smallestNum = num	
 			}
 			else{
-				_array.shift(num)
+				nArray.push(num);
+				highestNum = num	
 			}
-		})	
+		})
+		return nArray
 	}
 	const newArray = arrangeElements(_definedValues)
 	const lastEl = newArray.length - 1;

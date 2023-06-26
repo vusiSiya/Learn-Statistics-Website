@@ -15,11 +15,14 @@ body{
 	margin:auto;
 }
 p{
-	display: flex;
-	margin: 10px auto;
+	display: block;
+	margin: 0.5rem;
+	margin-left: 0px;
+	text-align: start;
 	color: #2c4180;
 	font-weight: 100;
 	width: auto;
+	height: fit-content;
 }
 .section--sample-Size {
 	display: flex;
@@ -43,6 +46,7 @@ p{
 }
 
 input{
+	display: block;
 	height: 15px;
 	width: 2.5em;
 	border: 2px solid yellow;
@@ -54,7 +58,8 @@ input{
 	padding: 0.5rem;
 	color: #06062f;
 }
-.samples{
+
+.data-values{
 	display: flex;
 	flex-wrap: wrap;
 	align-items: center;
@@ -72,6 +77,11 @@ section.sought-value {
 	
 }
 .sought-value{
-	display: flex;
+	/* display: grid; */
+	/* grid-column-start: auto; */
+	/* grid-template-columns: 1fr 1fr; */
+	/* grid-template-rows: 1fr 1fr; */
+	display: block;
 	flex-wrap: wrap;
+	flex-direction: row;
 }
