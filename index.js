@@ -64,7 +64,6 @@ function getCards(data) {
 }
 
 function newCard(props, i) {
-    //#fefbd5
     let arrayLength = quizCards.children.length
     return `
         <div class="card " >
