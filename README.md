@@ -21,11 +21,9 @@ provided with just raw data.
 * Chrome DevTools
 
 ### Learning Reflection:
-I am making use of:
-	* pure functions
-	* and a declarative programming style.
-	
+In this project, I am using JavaScript to render elements and as a React student, I am making use of:
 
+* pure functions,
+* a declarative coding style.
+* and functional programming. 
 	
- 
-
