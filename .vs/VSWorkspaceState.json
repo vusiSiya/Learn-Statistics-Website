@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Calculators",
+    "\\Calculators\\Mean"
   ],
-  "SelectedNode": "\\README.md",
+  "SelectedNode": "\\Calculators\\Mean\\mean.js",
   "PreviewInSolutionExplorer": false
 }

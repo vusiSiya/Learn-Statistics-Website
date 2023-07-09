@@ -16,9 +16,9 @@ body{
 }
 p{
 	display: block;
-	margin: 0.5rem;
-	margin-left: 0px;
-	text-align: start;
+	margin: 0.5em 1rem;
+	/* margin-left: 0px; */
+	text-align: left;
 	color: #2c4180;
 	font-weight: 100;
 	width: auto;
@@ -84,4 +84,5 @@ section.sought-value {
 	display: block;
 	flex-wrap: wrap;
 	flex-direction: row;
+	margin-left: 0px;
 }
