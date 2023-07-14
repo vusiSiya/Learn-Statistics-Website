@@ -9,26 +9,22 @@ let sum = 0
   , mean = 0
   , range = 0
   , standardDeviation = 0;
-
 const newArray = (_array) => _array.map( value => value *= 0);
 const getDefinedValues = (_array) => _array.filter( num => num != null);
 
 samplesBtn.addEventListener("click", ()=>{
 	isChanged = true;
 	enterSampleData();
-}
-)
+})
 
 document.addEventListener("change", (e)=>{
 	const {className} = e.target;
-
 	if (className === "inputEl") {
 		handleValueChange(e);
 	} else if (className === "sample-Size") {
 		isChanged ? enterSampleData() : isChanged;
 	}
-}
-)
+})
 function enterSampleData() {
 
 	sum = 0,
@@ -71,14 +67,18 @@ function handleValueChange(event) {
 	})
 	const definedValues = getDefinedValues(dataValuesArray)
 	sum = Sum(definedValues);
-	mean = Mean(sum, definedValues);
+	mean = Mean(sum, definedValues)
 	range = Range(definedValues);
 	standardDeviation = StandardDeviation(mean, definedValues);
 	displayOutput();
 }
 
 function Sum(_array) {
-	let _sum = _array.reduce((acc,num) =>{ acc + num}, 0);
+	/*let _sum = _array.reduce((acc,num) =>{
+		acc + num
+	}, 0);*/
+
+	let _sum = 0; _array.forEach( num => _sum += num );
 	return _sum
 }
 
@@ -88,10 +88,10 @@ function Mean(_sum, _definedValues) {
 }
 
 function StandardDeviation(_mean, _definedValues) {
-	const array = _definedValues.map( number => Math.pow(number - _mean, 2));
-	const _sum = Sum(array);
-	let N = array.length - 1;
-	let standardDeviation = Math.sqrt((_sum / N), 2);
+	const _array = _definedValues.map( number => Math.pow(number - _mean, 2));
+	const _sum = Sum(_array);
+	let N = _array.length - 1;
+	let standardDeviation = Math.sqrt( (_sum / N), 2);
 	return standardDeviation.toFixed(2);
 }
 
