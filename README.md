@@ -3,7 +3,6 @@ A studying tool for people learning Statistics.
 
 Check out the 👉<a href="https://vusisiya.github.io/Learn-Statistics-Website/">Live Demo<a/> 
 
-
 ### Project Description:
 This project is meant to be a studying tool for people learning Statistics. The website will have:
 
