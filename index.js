@@ -36,7 +36,7 @@ const quizData = [{
 //let server = createServer()
 //server.get("/api/users", { quizes: [quizData] })
 
-let indexes = [0]
+let cardIndexes = [0]
 let cardIsClicked = false;
 let answer
 let randomIndex
@@ -72,28 +72,28 @@ function newCard(props, i) {
 }
 
 anotherCardBtn.addEventListener("click", ()=>{
-	const anotherCard = getCardIndex(indexes);
+	const anotherCard = getCardIndex(cardIndexes);
 	isNewCard = true;
 	return quizCards.innerHTML += newCard(anotherCard, randomIndex);
 })
 
-function getCardIndex(_indexes) {
+function getCardIndex(_cardIndexes) {
 	
 	const getIndex = ()=>Math.floor(Math.random() * quizData.length);
-	let _randomIndex = getIndex();
-	const check = (_randomIndex)=>{
-		let isRepeated = _indexes.includes(_randomIndex);
+	const checkIndex = (rndmIndex)=>{
+		let isRepeated = _cardIndexes.includes(rndmIndex);
 		if (isRepeated === false) {
-			_indexes.push(_randomIndex);
+			_cardIndexes.push(rndmIndex);
 			return;
 		} else {
-			_randomIndex = getIndex();
-			check(_randomIndex);
+			rndmIndex = getIndex();
+			checkIndex(rndmIndex);
 		}
 	}
-	check(_randomIndex);
-	randomIndex = _randomIndex; // syncing the global and local randomIndex, to use the global randomIndex variable in other functions;
-	let randomCard = quizData[_randomIndex];
+	let rndmIndex = getIndex();
+	checkIndex(rndmIndex); // made the function void so I can make it call itself
+	randomIndex = rndmIndex; // updating the global randomIndex, so I can use it in other functions.
+	let randomCard = quizData[rndmIndex];
 	return randomCard;
 }
 
@@ -114,9 +114,12 @@ document.addEventListener("click", (e)=>{
 })
 
 function updatedCardContent(props) {
-	let value = cardIsClicked ? `<pre>Solution:</pre>
-        <p class="answer"> ${answer}</p` : `<pre>Quiz Question:</pre>
-            <p class='question'>${props.question}</p>`
+	let value = cardIsClicked ? 
+	`<pre>Solution:</pre>
+    <p class="answer"> ${answer}</p`
+	:
+	`<pre>Quiz Question:</pre>
+    <p class='question'>${props.question}</p>`;
 
 	return value;
 }

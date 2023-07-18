@@ -115,14 +115,13 @@ h1{
 }
 .cards {
 	display: grid;
-	grid-template-columns: 0.5fr 0.5fr 0.5fr;
-	grid-gap: 1em;
+	grid-template-columns: repeat( auto, 1fr);
+	gap: 1em;
 	align-items: center;
 	margin: 0.5rem 2em;
 	/* padding: 0.5em; */
 	justify-content: center;
 	justify-items: center;
-	flex-wrap: wrap;
 }
 
 .card {

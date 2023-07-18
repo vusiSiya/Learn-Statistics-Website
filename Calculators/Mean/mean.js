@@ -111,8 +111,7 @@ function Range(_definedValues) {
 		})
 		return nArray
 	}
-	const newArray = arrangeElements(_definedValues)
-	// OR _definedValues.slice().sort( (a,b) => a > b ? 1 : -1)
+	const newArray = arrangeElements(_definedValues)// OR const newArray = _definedValues.slice().sort( (a,b) => a > b ? 1 : -1)
 	const lastEl = newArray.length - 1;
 	let _range = newArray[lastEl] - newArray[0];
 	return _range;
