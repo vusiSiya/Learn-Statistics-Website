@@ -6,8 +6,7 @@ body{
 
 nav {
 	background-color: #304f95;
-	display: grid;
-	grid-template-columns: 1fr 1fr;
+	display: flex;
 	padding: 5px 5px;
 	align-items: flex-start;
 	border-radius: 5px;
@@ -15,6 +14,7 @@ nav {
 	flex-wrap: wrap;
 	margin: auto;
 	justify-content: space-between;
+	flex-direction: row;
 }
 
 .nav--title {
@@ -111,15 +111,15 @@ h1{
 	text-shadow: 2px -3px black;
 	color: #f2edc5;
 	font-size: 2.5rem;
-	margin: 0 auto 0.5rem;
+	margin: 5px auto 0.5rem;
 }
 .cards {
 	display: grid;
-	grid-template-columns: repeat( auto, 1fr);
+	grid-template-columns: repeat( auto-fit,minmax(20em, 1fr));
 	gap: 1em;
-	align-items: center;
+	align-items: start;
 	margin: 0.5rem 2em;
-	/* padding: 0.5em; */
+	padding: 0.5em;
 	justify-content: center;
 	justify-items: center;
 }
@@ -130,8 +130,8 @@ h1{
 	display: grid;
 	grid-gap: 0.6rem;
 	margin: .8em 0.55em;
-	padding: 0.4em 0.5em;
-	width: auto;
+	padding: 0.3em 0.4em;
+	width: fit-content;
 	height: auto;
 	border-radius: 1rem;
 	align-items: center;

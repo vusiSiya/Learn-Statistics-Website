@@ -74,12 +74,10 @@ function handleValueChange(event) {
 }
 
 function Sum(_array) {
-	/*let _sum = _array.reduce((acc,num) =>{
-		acc + num
-	}, 0);*/
-
-	let _sum = 0; _array.forEach( num => _sum += num );
-	return _sum
+	let sum = _array.reduce((acc,num) =>{
+		return acc + (num * 1);
+	}, 0);
+	return sum
 }
 
 function Mean(_sum, _definedValues) {
