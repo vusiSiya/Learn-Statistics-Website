@@ -81,9 +81,10 @@ a{
 }
 
 main {
-	display: grid;
+	display: flex;
 	gap: 0.5rem;
 	text-align: center;
+	flex-direction: column;
 }
 
 section {
