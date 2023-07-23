@@ -33,26 +33,18 @@ const quizData = [{
 	question: ``,
 	answer: `HEllo World`
 }]
-//let server = createServer()
-//server.get("/api/users", { quizes: [quizData] })
-
-let cardIndexes = [0]
+let cardIndexes = [0];
 let cardIsClicked = false;
-let answer
-let randomIndex
-let currentCardData
+let answer;
+let randomIndex;
+let currentCardData;
 let isNewCard = false;
 
-initialCardsDisplay();
+initialCardsDisplay(quizData);
 
-function initialCardsDisplay() {
-	quizCards.innerHTML = getCards(quizData);
-}
-
-function getCards(data) {
-	let s = ""
-	data.map((quiz,i)=>s += newCard(quiz, i))
-	return s;
+function initialCardsDisplay(data) {
+	const baseString = data.reduce((acc, quiz, i)=> acc + newCard(quiz, i),"");
+	quizCards.innerHTML = baseString;
 }
 
 function newCard(props, i) {
@@ -60,25 +52,24 @@ function newCard(props, i) {
 	let elementCount = isNewCard ? arrayLength : i;
 	return `
         <div class="card " >
-                <h3 class = 'card--topic' >${props.topic}</h3>
-                <div class="card-content">
-                    <pre>Quiz Question:</pre>
-                    <p class='question'>
-                        ${props.question}
-                    </p>
-                </div>
-                <button id = "${elementCount}" class="solution ${elementCount}" >See Solution</button>
+			<h3 class = 'card--topic' >${props.topic}</h3>
+			<div class="card-content">
+				<pre>Quiz Question:</pre>
+				<p class='question'>
+					${props.question}
+				</p>
+			</div>
+			<button id = "${elementCount}" class="solution ${elementCount}" >See Solution</button>
         </div>`
 }
 
 anotherCardBtn.addEventListener("click", ()=>{
-	const anotherCard = getCardIndex(cardIndexes);
 	isNewCard = true;
-	return quizCards.innerHTML += newCard(anotherCard, randomIndex);
+	const anotherCard = getCardIndex(cardIndexes);
+	quizCards.innerHTML += newCard(anotherCard, randomIndex);
 })
 
 function getCardIndex(_cardIndexes) {
-	
 	const getIndex = ()=>Math.floor(Math.random() * quizData.length);
 	const checkIndex = (rndmIndex)=>{
 		let isRepeated = _cardIndexes.includes(rndmIndex);
@@ -91,8 +82,8 @@ function getCardIndex(_cardIndexes) {
 		}
 	}
 	let rndmIndex = getIndex();
-	checkIndex(rndmIndex); // made the function void so I can make it call itself
-	randomIndex = rndmIndex; // updating the global randomIndex, so I can use it in other functions.
+	checkIndex(rndmIndex); // chose to make the function void, to make it call itself
+	randomIndex = rndmIndex; // updating the global randomIndex, to use it in other functions.
 	let randomCard = quizData[rndmIndex];
 	return randomCard;
 }
@@ -114,12 +105,11 @@ document.addEventListener("click", (e)=>{
 })
 
 function updatedCardContent(props) {
-	let value = cardIsClicked ? 
+	return cardIsClicked ? 
 	`<pre>Solution:</pre>
     <p class="answer"> ${answer}</p`
 	:
 	`<pre>Quiz Question:</pre>
     <p class='question'>${props.question}</p>`;
 
-	return value;
 }

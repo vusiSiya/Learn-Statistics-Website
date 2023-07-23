@@ -1,5 +1,5 @@
 body{
-	background-color: #6f7c8b ;
+	background-color: #6f7c8b;
 	width: 100%;
 	margin: auto;
 }
@@ -23,7 +23,7 @@ nav {
 	text-shadow: 0px 0px 15px black;
 	margin: auto;
 	margin-left: 0.55em;
-	font: 65px 'Bell MT';
+	font: 2em 'Bell MT';
 	font-weight: 500;
 	height: 100%;
 	flex-direction: row;
@@ -81,9 +81,10 @@ a{
 }
 
 main {
-	display: grid;
+	display: flex;
 	gap: 0.5rem;
 	text-align: center;
+	flex-direction: column;
 }
 
 section {
@@ -195,6 +196,7 @@ footer {
 	padding: 5px 2px;
 	color: wheat;
 	text-align: center;
+	position: \;
 }
 
 .btn--another-quiz, .solution{
