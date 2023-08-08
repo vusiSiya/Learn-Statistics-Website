@@ -1,44 +1,37 @@
 
 body{
-	font: 1.5vw monospace;
-	font-weight: 100;
 }
 .calculator{
 	display: flex;
 	flex-direction: column;
-	padding: 10px;
-	width: 25vw;
-	align-items: center;
+	padding: 1em;
+	width: fit-content;
 	background-color: aquamarine;
-	border: 1px solid grey;
+	border: 1px solid black;
 	border-radius: 1rem;
-	margin:auto;
+	margin: auto;
+	flex-wrap: wrap;
+	font: bold 2em monospace;
+	gap: 1em;
 }
 p{
 	display: block;
-	margin: 0.5em 1rem;
-	/* margin-left: 0px; */
 	text-align: left;
 	color: #2c4180;
-	font-weight: 100;
-	width: auto;
-	height: fit-content;
 }
 .section--sample-Size {
 	display: flex;
-	flex-wrap: wrap;
-	margin-left: 0px;
+	align-items: center;
+	gap: 1em;
 }
 .btn-Enter-samples{
 	width: fit-content;
-	height: 4vh;
 	color: white;
 	background-color: #1cdd1c;
-	margin: 5px auto;
-	font-weight: bolder;
-	font: 1.2rem Monospace;
 	border: none;
 	border-radius: 5px;
+	padding: .3em;
+	font-size: .8em;
 }
 
 .btn-Enter-samples:hover{
@@ -77,12 +70,16 @@ section.sought-value {
 	
 }
 .sought-value{
-	/* display: grid; */
-	/* grid-column-start: auto; */
-	/* grid-template-columns: 1fr 1fr; */
+	display: grid;
+	grid-column-start: auto;
+	grid-template-columns: 1fr 1fr;
 	/* grid-template-rows: 1fr 1fr; */
-	display: block;
 	flex-wrap: wrap;
 	flex-direction: row;
 	margin-left: 0px;
+}
+
+
+h4 {
+	margin: auto;
 }
