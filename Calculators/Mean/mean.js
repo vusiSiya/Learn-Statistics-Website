@@ -1,5 +1,5 @@
 const dataValuesEl = document.querySelector(".data-values")
-const sampleSize = document.querySelector(".sample-Size")
+const input = document.querySelector(".sample-Size")
 const samplesBtn = document.querySelector(".btn-Enter-samples")
 let inputIndexes = []
 let dataValuesArray = []
@@ -31,13 +31,13 @@ function enterSampleData() {
 	mean = 0,
 	range = 0,
 	standardDeviation = 0;
-	let Length = sampleSize.value * 1;
+	let sampleSize = input.value * 1;
 
 	cleanUpHTML();
 	dataValuesArray = newArray(dataValuesArray);
 	inputIndexes = newArray(inputIndexes);
 
-	for (let i = 0; i < Length; i++) {
+	for (let i = 0; i < sampleSize; i++) {
 		sampleName = `sample-${i + 1}`
 		inputIndexes[i] = `${sampleName}`
 		dataValuesEl.innerHTML += createInputEl(i)	
@@ -52,7 +52,6 @@ function createInputEl(i) {
 }
 
 function cleanUpHTML() {
-	document.querySelector(".p--data").innerText = "data: "
 	dataValuesEl.innerHTML = ""
 	displayOutput()
 }
@@ -109,7 +108,7 @@ function Range(_definedValues) {
 		})
 		return nArray
 	}
-	const newArray = arrangeElements(_definedValues)// OR const newArray = _definedValues.slice().sort( (a,b) => a > b ? 1 : -1)
+	const newArray = arrangeElements(_definedValues)// OR  _definedValues.slice().sort( (a,b) => a > b ? 1 : -1)
 	const lastEl = newArray.length - 1;
 	let _range = newArray[lastEl] - newArray[0];
 	return _range;
@@ -118,11 +117,10 @@ function Range(_definedValues) {
 function displayOutput() {
 	let s_ = `
 	<section class="sought-value">
-		<p class="sum-El">Sum:${sum}</p>
- 		<p class ="range-El">Range: ${range}</p>
-		<p class ="meanEl">Mean: ${mean}</p>
-		<p class ="standardDeviationEl">
-			Standard deviation: ${standardDeviation}
+		<p>Sum:${sum}</p>
+ 		<p>Range: ${range}</p>
+		<p>Mean: ${mean}</p>
+		<p>Standard deviation: ${standardDeviation}
 		</p>
 	</section>
 		`

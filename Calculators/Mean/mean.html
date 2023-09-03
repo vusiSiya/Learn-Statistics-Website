@@ -1,28 +1,26 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <title>Calculators</title>
-    <link href="./mean.css" rel="stylesheet"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
-<body>
-    <div class="calculator">
-        <h4 >
-            Calculate the mean, standard deviation and range
-        </h4>
-        <section class="section--sample-Size">
-            <p>sample size:</p>
-            <input required type="number" name="sample-size"class="sample-Size" />          
-        </section>
-        <button class="btn-Enter-samples">Enter data</button>
-        <div style="display: flex">
-            <p class="p--data"></p>
-            <div class="data-values">
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="./mean.css" rel="stylesheet"/>
+        <title>Calculators</title>
+        
+    </head>
+    <body>
+        <main>
+            <div class="calculator">
+                <section style="display: flex">
+                    <input required placeholder="sample size" type="number" name="sample-size" class="sample-Size"/>
+                    <button class="btn-Enter-samples">Enter data</button>
+                </section>
+                <section style="display: flex;">
+                    <p class="p--data"></p>
+                    <div class="data-values"></div>
+                </section>
+                <section class="output"></section>
             </div>
-        </div>
-        <section class="output">          
-        </section>
-    </div>
-    <script src="mean.js"></script>
-</body>
+        </main>
+        <script src="mean.js"></script>
+    </body>
 </html>

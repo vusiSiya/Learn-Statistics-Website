@@ -1,6 +1,4 @@
-//const displayCalculator = document.querySelector(".calculatorDisplay")
 
-/*import {createServer} from "miragejs"*/
 const quizCards = document.querySelector(".cards");
 const anotherCardBtn = document.querySelector(".btn--another-quiz");
 const quizData = [{
@@ -106,10 +104,10 @@ document.addEventListener("click", (e)=>{
 
 function updatedCardContent(props) {
 	return cardIsClicked ? 
-	`<pre>Solution:</pre>
-    <p class="answer"> ${answer}</p`
-	:
-	`<pre>Quiz Question:</pre>
-    <p class='question'>${props.question}</p>`;
+		`<pre>Solution:</pre>
+		<p class="answer"> ${answer}</p`
+		:
+		`<pre>Quiz Question:</pre>
+		<p class='question'>${props.question}</p>`;
 
 }

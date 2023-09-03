@@ -118,11 +118,11 @@ h1{
 	display: grid;
 	grid-template-columns: repeat( auto-fit,minmax(20em, 1fr));
 	gap: 1em;
-	align-items: start;
-	margin: 0.5rem 2em;
+	align-items: center;
+	margin: auto;
+	/* margin: 0.5rem 2em; */
 	padding: 0.5em;
-	justify-content: center;
-	justify-items: center;
+	/* justify-content: center; */
 }
 
 .card {
@@ -132,7 +132,7 @@ h1{
 	grid-gap: 0.6rem;
 	margin: .8em 0.55em;
 	padding: 0.3em 0.4em;
-	width: fit-content;
+	width: auto;
 	height: auto;
 	border-radius: 1rem;
 	align-items: center;
@@ -196,7 +196,6 @@ footer {
 	padding: 5px 2px;
 	color: wheat;
 	text-align: center;
-	position: \;
 }
 
 .btn--another-quiz, .solution{

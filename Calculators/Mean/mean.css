@@ -1,21 +1,19 @@
 
-body{
-}
+main{display: grid;grid-template-rows: 1fr 8fr 1fr;}
 .calculator{
-	display: flex;
-	flex-direction: column;
-	padding: 1em;
-	width: fit-content;
+	grid-row: 2;
+	display: grid;
+	padding: 1.5em 1em;
+	width: auto;
 	background-color: aquamarine;
 	border: 1px solid black;
 	border-radius: 1rem;
 	margin: auto;
-	flex-wrap: wrap;
-	font: bold 2em monospace;
-	gap: 1em;
+	/* font: bold 1.5rem Bell MT, sans-serif; */
+	font: bold 1.5rem monospace;
+	gap: 1.5em;
 }
 p{
-	display: block;
 	text-align: left;
 	color: #2c4180;
 }
@@ -23,15 +21,17 @@ p{
 	display: flex;
 	align-items: center;
 	gap: 1em;
+	flex-direction: row;
 }
 .btn-Enter-samples{
-	width: fit-content;
+	font: inherit;
+	width: 15rem;
+	height: 3.6rem;
 	color: white;
-	background-color: #1cdd1c;
+	background-color: blue;
 	border: none;
-	border-radius: 5px;
+	border-radius: 1rem;
 	padding: .3em;
-	font-size: .8em;
 }
 
 .btn-Enter-samples:hover{
@@ -40,24 +40,25 @@ p{
 
 input{
 	display: block;
-	height: 15px;
-	width: 2.5em;
-	border: 2px solid yellow;
-	border-radius: 30%;
+	width: 3.5em;
+	border-radius: 1em;
 	border-width: 0.5px;
-	margin: 2px 5px;
 	font-family: monospace;
+	margin: 0.5em;
+	margin-left: 0;
 	font-size: smaller;
-	padding: 0.5rem;
+	padding: 0.8em;
+	text-align: center;
 	color: #06062f;
 }
 
 .data-values{
-	display: flex;
-	flex-wrap: wrap;
+	display: grid;
 	align-items: center;
 	padding: 10px 0px;
+	margin-top: .8em;
 	justify-content: space-evenly;
+	grid-template-columns: repeat(5,auto);
 }
 .section--output{
 	display: flex;
@@ -70,16 +71,28 @@ section.sought-value {
 	
 }
 .sought-value{
+	text-align: center;
 	display: grid;
-	grid-column-start: auto;
-	grid-template-columns: 1fr 1fr;
-	/* grid-template-rows: 1fr 1fr; */
-	flex-wrap: wrap;
-	flex-direction: row;
-	margin-left: 0px;
+	grid-template-columns: auto auto;
+	column-gap: 1.8em;
+	grid-template-rows: 1fr 1fr;
 }
 
 
 h4 {
 	margin: auto;
+}
+
+input.sample-Size {
+    width: 8em;
+}
+
+section {
+    display: flex;
+    flex-wrap: wrap;
+    align-items:  center;
+}
+
+.calculator:hover {
+    box-shadow: 0px 2px 40px 0px rgba(0,0,0,.3);
 }
