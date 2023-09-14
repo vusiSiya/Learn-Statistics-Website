@@ -4,6 +4,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" >
         <title>Learn Stats</title>
         <link rel="stylesheet" href="./index.css"/>
+        <link rel="stylesheet" href="./Calculators/Mean/mean.css"/>
     </head>
     <body>
         <header>
@@ -13,26 +14,59 @@
                     <h4 class="confirm--answers">Calculate faster with this calculator👇</h4>
                     <div class="nav--topics">
                         <button class="btn-calculator">
-                        <a target="_blank" href="./Calculators/Mean/mean.html">Calculator</a>
+                            Calculator
                         </button>
                     </div>
                 </div>
             </nav>
         </header>
+        
         <main>
             <section>
                 <p class="section--paragraph">The best way to learn is to learn by doing.</p>
             </section>
-            <div class="wrapper">
+            
+            <!--container -->
+            
+            <div class="container">
                 <h1>Quick Quiz Questions</h1>
                 <div class="cards"></div>
-            <button class="btn--another-quiz">Another Quiz</button>
+                <button class="btn--another-quiz">Another Quiz</button>
             </div>
+
+            <!--modal -->
+            
+            <div class="calculator">
+                
+                <section style="display: flex">
+                    <input 
+                        required 
+                        placeholder="sample size" 
+                        type="number" 
+                        name="sample-size" 
+                        class="sample-size"
+                    />
+                    <button class="btn-Enter-samples">Enter data</button>
+                </section>
+                
+                <section class="input-elements-container"></section>
+                <section class="output"></section>
+            </div>
+            
         </main>
-        <script src="index.js" ></script>        
+        <script src="index.js"></script>        
     </body>
 </html>
 <footer>
-    <p class="salutation">Like the famous saying goes, study smart, not hard!😉 Happy learning😎❤</p>
-    <p> © 2023 Siyabonga Mahlalela</p>
+    <p class="salutation">
+        Like the famous saying goes, study smart, not hard!😉 Happy learning❤
+    </p>
+    <p> © 
+        <span id="current-year">
+            <script>
+                document.getElementById("current-year").textContent = new Date().getFullYear()
+            </script>
+        </span>
+        Siyabonga Mahlalela
+    </p>
 </footer>

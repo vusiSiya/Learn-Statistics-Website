@@ -1,6 +1,8 @@
 const dataValuesEl = document.querySelector(".data-values")
 const input = document.querySelector(".sample-Size")
 const samplesBtn = document.querySelector(".btn-Enter-samples")
+const calculatorBtn = document.querySelector(".btn-calculator")
+
 let inputIndexes = []
 let dataValuesArray = []
 let sampleName

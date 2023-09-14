@@ -1,6 +1,11 @@
 
 const quizCards = document.querySelector(".cards");
 const anotherCardBtn = document.querySelector(".btn--another-quiz");
+const calculatorBtn = document.querySelector(".btn-calculator");
+const inputElementsContainer = document.querySelector(".input-elements-container")
+const input = document.querySelector(".sample-size")
+const samplesBtn = document.querySelector(".btn-Enter-samples")
+
 const quizData = [{
 	topic: `Hypothesis Testing`,
 	question: `Practical 1. Q1. A manufacturer claims that his market share is 60%.
@@ -31,18 +36,56 @@ const quizData = [{
 	question: ``,
 	answer: `HEllo World`
 }]
-let cardIndexes = [0];
+let cardIndexes = [] //quizData.map( el => Math.floor(Math.random()* quizData.length) + 1 );
+console.log(cardIndexes)
 let cardIsClicked = false;
 let answer;
 let randomIndex;
 let currentCardData;
 let isNewCard = false;
 
+//modal variables
+let inputIndexes = []
+let dataValuesArray = []
+let sampleName
+let isChanged = false;
+let sum = 0
+  , mean = 0
+  , range = 0
+  , standardDeviation = 0;
+const newArray = (_array) => _array.map( value => value *= 0);
+const getDefinedValues = (_array) => _array.filter( num => num != null);
+
+
+calculatorBtn.addEventListener("click", modalLogic)
+
+anotherCardBtn.addEventListener("click", ()=>{
+	isNewCard = true;
+	const anotherCard = getCardIndex(cardIndexes);
+	quizCards.innerHTML += newCard(anotherCard, randomIndex);
+})
+
+document.addEventListener("click", (e)=>{
+	const {id, classList} = e.target;
+	if (classList[0] === "solution") {
+
+		let cardData = quizData[id];
+		cardIsClicked = !cardIsClicked;
+
+		if (cardIsClicked) {
+			answer = cardData.answer;
+		}
+		let cardIndex = classList[1]
+		let cardContentEl = quizCards.children[cardIndex].children[1];
+		cardContentEl.innerHTML = updatedCardContent(cardData);
+	}
+})
+
 initialCardsDisplay(quizData);
 
 function initialCardsDisplay(data) {
-	const baseString = data.reduce((acc, quiz, i)=> acc + newCard(quiz, i),"");
-	quizCards.innerHTML = baseString;
+	const cards = data.reduce((acc, quiz, i)=> acc + newCard(quiz, i),"");
+	quizCards.innerHTML = cards;
 }
 
 function newCard(props, i) {
@@ -61,13 +104,8 @@ function newCard(props, i) {
         </div>`
 }
 
-anotherCardBtn.addEventListener("click", ()=>{
-	isNewCard = true;
-	const anotherCard = getCardIndex(cardIndexes);
-	quizCards.innerHTML += newCard(anotherCard, randomIndex);
-})
-
 function getCardIndex(_cardIndexes) {
+	
 	const getIndex = ()=>Math.floor(Math.random() * quizData.length);
 	const checkIndex = (rndmIndex)=>{
 		let isRepeated = _cardIndexes.includes(rndmIndex);
@@ -78,29 +116,13 @@ function getCardIndex(_cardIndexes) {
 			rndmIndex = getIndex();
 			checkIndex(rndmIndex);
 		}
-	}
-	let rndmIndex = getIndex();
+	} 
+	let rndmIndex = getIndex(); //_cardIndexes.map(num => numbers.findLast(el => el === num))
 	checkIndex(rndmIndex); // chose to make the function void, to make it call itself
 	randomIndex = rndmIndex; // updating the global randomIndex, to use it in other functions.
 	let randomCard = quizData[rndmIndex];
 	return randomCard;
 }
-
-document.addEventListener("click", (e)=>{
-	const {id, classList} = e.target;
-	if (classList[0] === "solution") {
-
-		let cardData = quizData[id];
-		cardIsClicked = !cardIsClicked;
-
-		if (cardIsClicked) {
-			answer = cardData.answer;
-		}
-		let cardIndex = classList[1]
-		let cardContentEl = quizCards.children[cardIndex].children[1];
-		cardContentEl.innerHTML = updatedCardContent(cardData);
-	}
-})
 
 function updatedCardContent(props) {
 	return cardIsClicked ? 
@@ -110,4 +132,124 @@ function updatedCardContent(props) {
 		`<pre>Quiz Question:</pre>
 		<p class='question'>${props.question}</p>`;
 
+}
+
+	// code for calculator-modal:
+
+function modalLogic() {
+	
+	document.querySelector(".calculator").style.display="grid"
+	displayOutput();
+	samplesBtn.addEventListener("click", ()=>{
+		isChanged = true;
+		enterSampleData();
+	})
+	
+	document.addEventListener("change", (e)=>{
+		const {className} = e.target;
+		if (className === "inputEl") {
+			handleValueChange(e);
+		} else if (className === "sample-Size") {
+			isChanged ? enterSampleData() : isChanged;
+		}
+	})	
+}
+
+function enterSampleData() {
+
+	sum = 0,
+	mean = 0,
+	range = 0,
+	standardDeviation = 0;
+	let sampleSize = input.value * 1;
+
+	cleanUpHTML();
+	dataValuesArray = newArray(dataValuesArray);
+	inputIndexes = newArray(inputIndexes);
+
+	for (let i = 0; i < sampleSize; i++) {
+		sampleName = `sample-${i + 1}`
+		inputIndexes[i] = `${sampleName}`
+		inputElementsContainer.innerHTML += createInputEl(i)	
+	}
+}
+
+function createInputEl(i) {
+	let _s = `
+	<input type="number" class="inputEl" 
+		 name =${inputIndexes[i]} placeholder="value" />`
+	return _s;
+}
+
+function cleanUpHTML() {
+	inputElementsContainer.innerHTML = ""
+	displayOutput()
+}
+
+function handleValueChange(event) {
+	const {value, name} = event.target;
+	//let isWantedValue = inputIndexes.includes(name);
+	inputIndexes.forEach((string,i) =>{
+		if (string === name) {
+			dataValuesArray[i] = value * 1;
+		}
+	})
+	const definedValues = getDefinedValues(dataValuesArray)
+	sum = Sum(definedValues);
+	mean = Mean(sum, definedValues)
+	range = Range(definedValues);
+	standardDeviation = StandardDeviation(mean, definedValues);
+	displayOutput();
+}
+
+function Sum(_array) {
+	let sum = _array.reduce((acc,num) =>{
+		return acc + (num * 1);
+	}, 0);
+	return sum
+}
+
+function Mean(_sum, _definedValues) {
+	let _mean = _sum / _definedValues.length;
+	return _mean.toFixed(2)
+}
+
+function StandardDeviation(_mean, _definedValues) {
+	const _array = _definedValues.map( number => Math.pow(number - _mean, 2));
+	const _sum = Sum(_array);
+	let N = _array.length - 1;
+	let standardDeviation = Math.sqrt( (_sum / N), 2);
+	return standardDeviation.toFixed(2);
+}
+
+function Range(_definedValues) {
+	const arrangeElements = (_array)=>{
+		let smallestNum = _array[0];
+		let highestNum = _array[0];
+		const nArray = []
+		_array.map( num =>{
+			if (num < highestNum) {
+				nArray.unshift(num);
+				smallestNum = num
+			} else {
+				nArray.push(num);
+				highestNum = num
+			}
+		})
+		return nArray
+	}
+	const newArray = arrangeElements(_definedValues)// OR  _definedValues.slice().sort( (a,b) => a > b ? 1 : -1)
+	const lastEl = newArray.length - 1;
+	let _range = newArray[lastEl] - newArray[0];
+	return _range;
+}
+
+function displayOutput() {
+	let s_ = `
+		<p>Sum:${sum}</p>
+		<p>Mean: ${mean}</p>
+  		<p>Standard Dev: ${standardDeviation}</p>
+		<p>Range: ${range}</p>
+		`
+	document.querySelector(".output").innerHTML = s_
 }

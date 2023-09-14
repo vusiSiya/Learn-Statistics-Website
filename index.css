@@ -22,7 +22,7 @@ nav {
 	display: flex;
 	text-shadow: 0px 0px 15px black;
 	margin: auto;
-	margin-left: 0.55em;
+	/* margin-left: 0.55em; */
 	font: 2em 'Bell MT';
 	font-weight: 500;
 	height: 100%;
@@ -201,10 +201,10 @@ footer {
 .btn--another-quiz, .solution{
 	background-color: #ffa50066;
 	margin: 0px auto 0.8em auto;
-	padding: 0.5rem;
-	width: fit-content;
+	padding: 0.5em;
+	width: max-content;
 	color: #390303;
-	font-size: 1.3rem;
+	font-size: 1.2rem;
 	font-weight: bold;
 	font-family: Bell MT;
 	border: 1.4px solid #dcc9c9;
@@ -214,19 +214,17 @@ footer {
 .solution:hover {
     height: 1.3em;
     box-sizing: content-box;
-    box-shadow: -6px -1.5px 20px 0px #180307;
+    box-shadow: -5px -1px 20px 0px #180307;
 }
 
-@media screen(1100px){
-	.cards {
-	display: grid;
-	grid-template-columns: repeat(2, auto);
-	grid-gap: 1em;
-	align-items: center;
-	margin: 0.5rem 2em;
-	/* padding: 0.5em; */
-	justify-content: center;
-	justify-items: center;
+@media screen(800px){
+	.calculator {
+		width: max-content;
 	}
 	
+}
+
+footer > p {
+    text-align: center;
+    font-weight: bold;
 }

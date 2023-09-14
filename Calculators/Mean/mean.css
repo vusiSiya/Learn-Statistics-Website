@@ -1,21 +1,26 @@
 
-main{display: grid;grid-template-rows: 1fr 8fr 1fr;}
+/*main{display: grid;grid-template-rows: 1fr 8fr 1fr;}*/
 .calculator{
-	grid-row: 2;
-	display: grid;
-	padding: 1.5em 1em;
-	width: auto;
+	display:none;
+	padding: 1em;
+	min-height: max-content;
 	background-color: aquamarine;
 	border: 1px solid black;
 	border-radius: 1rem;
 	margin: auto;
-	/* font: bold 1.5rem Bell MT, sans-serif; */
 	font: bold 1.5rem monospace;
-	gap: 1.5em;
+	gap: .5em;
+	position: fixed;
+	width: fit-content;
+	top: 6em;
+	left: 1em;
+	bottom: 2em;
+	right: auto;
+	color: darkblue;
 }
 p{
 	text-align: left;
-	color: #2c4180;
+	margin: .2em;
 }
 .section--sample-Size {
 	display: flex;
@@ -25,8 +30,7 @@ p{
 }
 .btn-Enter-samples{
 	font: inherit;
-	width: 15rem;
-	height: 3.6rem;
+	width: auto;
 	color: white;
 	background-color: blue;
 	border: none;
@@ -40,25 +44,27 @@ p{
 
 input{
 	display: block;
-	width: 3.5em;
+	width: 3em;
+	height: .4em;
 	border-radius: 1em;
 	border-width: 0.5px;
 	font-family: monospace;
 	margin: 0.5em;
 	margin-left: 0;
 	font-size: smaller;
-	padding: 0.8em;
+	padding: 0.5em;
 	text-align: center;
 	color: #06062f;
 }
 
-.data-values{
-	display: grid;
-	align-items: center;
+.input-elements-container{
+	display: flex;
+	flex-wrap: wrap;
 	padding: 10px 0px;
 	margin-top: .8em;
-	justify-content: space-evenly;
-	grid-template-columns: repeat(5,auto);
+	/* grid-template-columns: repeat(5,1fr); */
+	/* grid-template-columns: repeat(auto-fit,minmax(10em,1fr)); */
+	width: auto;
 }
 .section--output{
 	display: flex;
@@ -70,12 +76,11 @@ input{
 section.sought-value {
 	
 }
-.sought-value{
+.output{
 	text-align: center;
 	display: grid;
-	grid-template-columns: auto auto;
-	column-gap: 1.8em;
-	grid-template-rows: 1fr 1fr;
+	grid-template-columns: repeat(2,auto);
+	width: auto;
 }
 
 
@@ -88,11 +93,16 @@ input.sample-Size {
 }
 
 section {
-    display: flex;
     flex-wrap: wrap;
     align-items:  center;
+    margin: 0;
+    width: 100%;
 }
 
 .calculator:hover {
     box-shadow: 0px 2px 40px 0px rgba(0,0,0,.3);
+}
+
+input.sample-size {
+    width: 7em;
 }
