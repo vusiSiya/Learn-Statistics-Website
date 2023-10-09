@@ -2,9 +2,11 @@
 const quizCards = document.querySelector(".cards");
 const anotherCardBtn = document.querySelector(".btn--another-quiz");
 const calculatorBtn = document.querySelector(".btn-calculator");
+const calculator = document.querySelector(".calculator")
 const inputElementsContainer = document.querySelector(".input-elements-container")
 const input = document.querySelector(".sample-size")
 const samplesBtn = document.querySelector(".btn-Enter-samples")
+
 
 const quizData = [{
 	topic: `Hypothesis Testing`,
@@ -37,7 +39,7 @@ const quizData = [{
 	answer: `HEllo World`
 }]
 let cardIndexes = [] //quizData.map( el => Math.floor(Math.random()* quizData.length) + 1 );
-console.log(cardIndexes)
+//console.log(cardIndexes)
 let cardIsClicked = false;
 let answer;
 let randomIndex;
@@ -45,6 +47,7 @@ let currentCardData;
 let isNewCard = false;
 
 //modal variables
+let modalIsDisplayed = false;
 let inputIndexes = []
 let dataValuesArray = []
 let sampleName
@@ -57,16 +60,16 @@ const newArray = (_array) => _array.map( value => value *= 0);
 const getDefinedValues = (_array) => _array.filter( num => num != null);
 
 
-calculatorBtn.addEventListener("click", modalLogic)
+//calculatorBtn.addEventListener("click", modalLogic)
 
-anotherCardBtn.addEventListener("click", ()=>{
+/*anotherCardBtn.addEventListener("click", ()=>{
 	isNewCard = true;
 	const anotherCard = getCardIndex(cardIndexes);
 	quizCards.innerHTML += newCard(anotherCard, randomIndex);
-})
+})*/
 
 document.addEventListener("click", (e)=>{
-	const {id, classList} = e.target;
+	const {id, classList, className} = e.target;
 	if (classList[0] === "solution") {
 
 		let cardData = quizData[id];
@@ -77,8 +80,21 @@ document.addEventListener("click", (e)=>{
 		}
 		let cardIndex = classList[1]
 		let cardContentEl = quizCards.children[cardIndex].children[1];
-		cardContentEl.innerHTML = updatedCardContent(cardData);
+		cardContentEl.innerHTML = updatedCardContent(cardData);	
 	}
+	else if (className === "btn--another-quiz" ) {
+		isNewCard = true;
+		const anotherCard = getCardIndex(cardIndexes);
+		quizCards.innerHTML += newCard(anotherCard, randomIndex);
+	}
+	else if (className === "btn-calculator") {
+		modalLogic();
+	}
+	else if (className === "modal-close-btn") {
+		calculator.style.display = "none"
+		modalIsDisplayed = !modalIsDisplayed
+	}
+	
 })
 
 initialCardsDisplay(quizData);
@@ -137,8 +153,8 @@ function updatedCardContent(props) {
 	// code for calculator-modal:
 
 function modalLogic() {
-	
-	document.querySelector(".calculator").style.display="grid"
+	modalIsDisplayed = !modalIsDisplayed
+	calculator.style.display="grid"
 	displayOutput();
 	samplesBtn.addEventListener("click", ()=>{
 		isChanged = true;

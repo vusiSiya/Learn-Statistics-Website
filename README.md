@@ -16,13 +16,6 @@ provided with just raw data.
 * CSS
 
 ### Tools Used:
-* Visual Studio Community 2022
-* Chrome DevTools
+* Visual Studio
 
-### Learning Reflection:
-In this project, I am using JavaScript to render elements and as a React student, I am making use of:
-
-* pure functions,
-* a declarative coding style.
-* and functional programming. 
 	
